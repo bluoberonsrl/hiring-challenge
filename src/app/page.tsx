@@ -1,53 +1,63 @@
-import Link from "next/link";
+"use client";
 
-import { LatestPost } from "~/app/_components/post";
-import { api, HydrateClient } from "~/trpc/server";
+import { Button } from "~/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
+import type { Post } from "~/models/post";
 
-export default async function Home() {
-  const hello = await api.post.hello({ text: "from tRPC" });
-
-  void api.post.getLatest.prefetch();
-
+export default function Home() {
   return (
-    <HydrateClient>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-          <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-            Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-          </h1>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/usage/first-steps"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">First Steps →</h3>
-              <div className="text-lg">
-                Just the basics - Everything you need to know to set up your
-                database and authentication.
-              </div>
-            </Link>
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-              href="https://create.t3.gg/en/introduction"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">Documentation →</h3>
-              <div className="text-lg">
-                Learn more about Create T3 App, the libraries it uses, and how
-                to deploy it.
-              </div>
-            </Link>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white">
-              {hello ? hello.greeting : "Loading tRPC query..."}
-            </p>
-          </div>
+    <main className="flex w-full max-w-sm flex-col gap-4">
+      <Card>
+        <CardHeader>
+          <CardTitle>Current posts</CardTitle>
+          <CardDescription>
+            List of the latest posts ordered by creation date.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <PostList />
+        </CardContent>
+      </Card>
 
-          <LatestPost />
-        </div>
-      </main>
-    </HydrateClient>
+      <Card>
+        <CardHeader>
+          <CardTitle>Add a new post</CardTitle>
+          <CardDescription>Add a new post to the list.</CardDescription>
+        </CardHeader>
+        <AddPostForm />
+      </Card>
+    </main>
+  );
+}
+
+function PostList() {
+  // TODO: Ottieni la lista dei posts dal server usando tRPC
+  return <ul className="flex flex-col gap-2">[post list]</ul>;
+}
+
+function PostListItem(props: { post: Post }) {
+  const { post } = props;
+  // TODO: Mostra per ogni post l'id, il titolo e la data di creazione con un minimo di stile
+  // TODO: Mostra, per lo stato di focus, un bordo per evidenziare il post selezionato
+  // TODO: Permetti l'eliminazione dei post selezionati navigando con tastiera
+  return <li>{post.title}</li>;
+}
+
+function AddPostForm() {
+  // TODO: Implementa un form per aggiungere un nuovo post
+  return (
+    <>
+      <CardContent>[add post form]</CardContent>
+      <CardFooter>
+        <Button>Add post</Button>
+      </CardFooter>
+    </>
   );
 }
