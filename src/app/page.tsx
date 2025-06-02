@@ -40,7 +40,7 @@ export default function Home() {
 }
 
 function PostList() {
-  // TODO: Ottieni la lista dei posts dal server usando tRPC
+  // TODO: Ottieni la lista dei posts dal server (meglio se con tRPC)
   return <ul className="flex flex-col gap-2">[post list]</ul>;
 }
 
@@ -54,7 +54,7 @@ function PostListItem(props: { post: Post }) {
 }
 
 function AddPostForm() {
-  // TODO: Implementa un form per aggiungere un nuovo post
+  // TODO: Implementa un form per aggiungere un nuovo post (meglio se con tRPC)
   return (
     <>
       <CardContent>[add post form]</CardContent>
