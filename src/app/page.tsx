@@ -11,6 +11,8 @@ import {
 } from "~/components/ui/card";
 import type { Post } from "~/models/post";
 
+import { api } from "~/trpc/react";
+
 export default function Home() {
   return (
     <main className="flex w-full max-w-sm flex-col gap-4">
