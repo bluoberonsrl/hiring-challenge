@@ -3,8 +3,9 @@ import { z } from "zod";
 // -- Schema --
 
 export const PostSchema = z.object({
-  id: z.number(), // Incremental ID, starting from 1
-  title: z.string(),
+  id: z.string().uuid(),
+  title: z.string().max(32, "Title must be less than 32 characters"),
+  content: z.string(),
   createdAt: z.number(), // Unix timestamp in milliseconds
 });
 
