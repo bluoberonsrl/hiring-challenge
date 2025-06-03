@@ -1,29 +1,95 @@
-# Create T3 App
+# Bluon Hiring Challenge
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Benvenuto/a alla Bluon Hiring Challenge! 🚀
 
-## What's next? How do I make an app with this?
+## Obiettivo
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+Il tuo compito è sviluppare un **CRUD completo** (Create, Read, Update, Delete) per gestire i post del blog.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+### Cos'è un CRUD?
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+Un CRUD è un'applicazione che permette di:
 
-## Learn More
+- **C**reate: Creare nuovi post
+- **R**ead: Visualizzare i post esistenti (lista e dettaglio)
+- **U**pdate: Modificare post esistenti
+- **D**elete: Eliminare post
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## Modello Dati
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+Il modello `Post` è già definito in `src/models/post.ts` e include:
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+```typescript
+{
+  id: string (UUID),
+  title: string (max 32 caratteri),
+  content: string,
+  createdAt: number (timestamp Unix in millisecondi)
+}
+```
 
-## How do I deploy this?
+## Specifiche del Progetto
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+### Funzionalità Richieste
+
+1. **Lista Post**: Pagina principale che mostra tutti i post
+2. **Dettaglio Post**: Visualizzazione completa di un singolo post
+3. **Creazione Post**: Form per creare un nuovo post
+4. **Modifica Post**: Form per modificare un post esistente
+5. **Eliminazione Post**: Possibilità di eliminare un post
+
+### Libertà Totale
+
+Hai **piena libertà** su:
+
+- Scelte architetturali e di design
+- Gestione dello stato
+- Styling e UI/UX
+- Routing e navigazione
+- Validazione e gestione errori
+- Consultazione di risorse online
+- Installazione di package aggiuntivi
+
+**Vogliamo vedere come lavori, la tua autonomia e le tue competenze full-stack end-to-end!**
+
+## Stack Tecnologico Disponibile
+
+Il progetto è già configurato con:
+
+- **Next.js 15** con App Router
+- **React 19** e **TypeScript**
+- **Tailwind** e **shadcn/ui** (ma puoi usare qualsiasi altra libreria di componenti)
+- **tRPC** con **TanStack Query** (ma puoi anche non usarli)
+- **Zod** per validazione (ma puoi usare anche Valibot o simili)
+- **ESLint** con typescript-eslint e setup strict
+- **Prettier** con plugin Tailwind
+- **Lucide React** per icone
+
+_Esplora il progetto per scoprire tutti i dettagli e le configurazioni disponibili!_
+
+## Bonus Points 🎯
+
+- Utilizzo di tRPC per le API (configurazione base già presente)
+- Optimistic updates per UX immediata
+- Implementazione di search/filtri avanzati
+- Gestione errori robusta
+- Skeleton loading states durante il caricamento
+- Keyboard shortcuts per power users
+- Accessibility (ARIA, keyboard navigation)
+- Infinite scroll o paginazione
+
+## Cosa Valutiamo
+
+### Competenze Tecniche
+
+- Qualità del codice e organizzazione
+- Utilizzo appropriato delle tecnologie disponibili
+- Gestione dello stato e dei dati
+- UI/UX e responsiveness
+
+### Soft Skills
+
+- **Autonomia**: Capacità di prendere decisioni tecniche
+- **Problem solving**: Come affronti le sfide
+- **Creatività**: Soluzioni innovative e user experience
+- **Attenzione ai dettagli**: Qualità del risultato finale
