@@ -1,6 +1,7 @@
 "use client";
 
-// If you want to use tRPC:
+// ONLY IF YOU WANT TO USE tRPC:
+// You can call any tRPC procedure (query or mutation) defined in the ~/server/api/routers folder
 // import { api } from "~/trpc/react";
 
 export default function Index() {
